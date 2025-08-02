@@ -1,0 +1,193 @@
+body{
+    margin: 8px 20px;
+    background-image: url(fondo_cuestionario.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+header{
+    background-color: #428a91;
+    border-radius: 10px;
+    border: 3px outset #e1bf93;
+    padding: 10px;
+    height: 16vw;
+    overflow: hidden;
+}
+#emcabezado_P{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#emcabezado_P a {
+    display: block;
+    width: 15.2%;
+    height: auto;
+    margin-right: 20px;
+    position: relative;
+    bottom: 2vw;
+    right: 1vw;
+}
+#emcabezado_P a img {
+    width: 100%;
+    height: auto;
+    display:block;
+}
+#emcabezado_P a img:hover{
+    filter: brightness(95%);
+}
+#emcabezado_P h1{
+    font-size: 10vw;
+    flex: 1;
+    margin: 0;
+    position: relative;
+    bottom: 2.8vw;
+    font-family: cursive;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: aliceblue;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    left: 2vw;
+}
+#indice{
+    background-color: #adcdc6;
+    padding: 2px;
+    border-radius: 20px;
+    border-style: outset;
+    border-color: #e1bf93;
+    width: 70%;
+    position: relative;
+    left: 25vw;
+    margin-bottom: 5px;
+    bottom: 22px;
+    font-size: 2vw;
+}
+#secciones{
+    list-style-type: none;
+    text-transform: uppercase;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+#secciones li{
+    flex: 1;
+}
+#secciones li a{
+    display: block;
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 2vw;
+}
+#secciones li a:hover{
+    background-color: #6f9c97;
+    text-decoration: underline;
+}   
+#Figuras, #Mangas{
+    margin: 2% 0.2%;
+    position: relative;
+    bottom: 28px;
+}
+#Figuras h1, #Mangas h1{
+    text-align: center;
+    font-size: 5vw;
+    font-family: monospace;
+    text-decoration: underline double;
+}
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    bottom: 20px;
+}
+.producto{
+    background-color: bisque;
+    border: 4px solid rgb(0, 0, 0);
+    border-style:outset;
+    border-radius: 10px;
+    width: 22.2vw;
+    box-sizing: border-box;
+    margin: 2px auto;
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: auto;
+}
+.producto:hover{
+    box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.508);
+}
+.info_P{
+    height: 100%;
+    overflow-wrap: break-word;
+}
+.producto h3{
+    text-transform:capitalize; 
+    font-size: 2vw;
+    margin: 1px 0px 0px;
+    text-align: center;
+}
+.producto img{
+    display: block;
+    width: 95%;
+    height: 27vw;
+    margin: 0 auto 0.5vw;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.producto table{
+    width: 100%;
+    font-size: 1.35vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    padding: 0 auto;
+}
+.producto p{
+    font-size: 1.8vw;
+    font-weight: bolder;
+}
+button{
+    border-radius: 8px;
+    width: 90%;
+    height: 2.4vw;
+    font-size: 1.4vw;
+}
+button:hover{
+    background-color: rgba(46, 204, 240, 0.703);
+}
+footer{
+    background-color: #428a91;
+    border-radius: 10px;
+    border: 3px outset #e1bf93;
+    padding: 10px;
+    height: 10.3vw;
+}
+footer h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5vw;
+    text-transform: uppercase;
+    position: relative;
+    bottom: 2.4vw;
+}
+footer img{
+    width: 4vw;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+footer table{
+    position: relative;
+    border-collapse: collapse;
+    bottom: 3.8vw;
+    font-size: 2vw;
+}
+footer th{
+    padding: 1px 5vw;
+}
