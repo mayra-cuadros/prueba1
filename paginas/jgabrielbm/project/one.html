@@ -1,0 +1,110 @@
+<?php
+include 'conexion.php';
+
+// Procesar el formulario de creación
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['crear'])) {
+    $nombres = $_POST['nombres'];
+    $apellidos = $_POST['apellidos'];
+    $edad = $_POST['edad'];
+    $fecha_nacimiento = $_POST['fecha_nacimiento'];
+    $nacionalidad = $_POST['nacionalidad'];
+    $contrato = isset($_POST['contrato']) ? 1 : 0;
+
+    $modelo = new Conexion();
+    $conexion = $modelo->get_conexion();
+    $sql = "INSERT INTO Empleados (NOMBRES, APELLIDOS, EDAD, FECHA_NACIMIENTO, NACIONALIDAD, CONTRATO) 
+            VALUES (:nombres, :apellidos, :edad, :fecha_nacimiento, :nacionalidad, :contrato)";
+    $statement = $conexion->prepare($sql);
+    $statement->bindParam(':nombres', $nombres);
+    $statement->bindParam(':apellidos', $apellidos);
+    $statement->bindParam(':edad', $edad);
+    $statement->bindParam(':fecha_nacimiento', $fecha_nacimiento);
+    $statement->bindParam(':nacionalidad', $nacionalidad);
+    $statement->bindParam(':contrato', $contrato);
+
+    if ($statement->execute()) {
+        header("Location: index.php?mensaje=Empleado creado correctamente.");
+    } else {
+        echo "Error al crear el empleado.";
+    }
+}
+
+// Leer todos los registros
+$modelo = new Conexion();
+$conexion = $modelo->get_conexion();
+$sql = "SELECT * FROM Empleados";
+$statement = $conexion->prepare($sql);
+$statement->execute();
+$empleados = $statement->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Empleados</title>
+</head>
+<body>
+    <h1>CRUD Empleados</h1>
+
+    <!-- Mostrar mensajes -->
+    <?php if (isset($_GET['mensaje'])): ?>
+        <p><?php echo htmlspecialchars($_GET['mensaje']); ?></p>
+    <?php endif; ?>
+
+    <!-- Formulario para crear registros -->
+    <h2>Crear Empleado</h2>
+    <form action="index.php" method="POST">
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required>
+        <br>
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required>
+        <br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad">
+        <br>
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+        <br>
+        <label for="nacionalidad">Nacionalidad:</label>
+        <input type="text" id="nacionalidad" name="nacionalidad" required>
+        <br>
+        <label for="contrato">Contrato:</label>
+        <input type="checkbox" id="contrato" name="contrato">
+        <br>
+        <button type="submit" name="crear">Crear</button>
+    </form>
+
+    <!-- Mostrar registros -->
+    <h2>Lista de Empleados</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Nacionalidad</th>
+            <th>Contrato</th>
+            <th>Acciones</th>
+        </tr>
+        <?php foreach ($empleados as $empleado): ?>
+        <tr>
+            <td><?php echo $empleado['ID']; ?></td>
+            <td><?php echo $empleado['NOMBRES']; ?></td>
+            <td><?php echo $empleado['APELLIDOS']; ?></td>
+            <td><?php echo $empleado['EDAD']; ?></td>
+            <td><?php echo $empleado['FECHA_NACIMIENTO']; ?></td>
+            <td><?php echo $empleado['NACIONALIDAD']; ?></td>
+            <td><?php echo $empleado['CONTRATO'] ? 'Sí' : 'No'; ?></td>
+            <td>
+                <a href="editar.php?id=<?php echo $empleado['ID']; ?>">Editar</a>
+                <a href="eliminar.php?id=<?php echo $empleado['ID']; ?>">Eliminar</a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+</body>
+</html>
