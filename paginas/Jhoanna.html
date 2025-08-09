@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Página de Jhoanna</title>
+   <style>
+    :root{
+      --orange-600:#f57c00;
+      --orange-500:#fb8c00;
+      --orange-200:#ffe0b2;
+      --text-900:#222;
+      --white:#fff;
+      --radius:14px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0 }
+
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text-900);
+      background:
+        radial-gradient(800px 300px at 110% -10%, rgba(251,140,0,.18), transparent 60%),
+        linear-gradient(180deg, var(--orange-200), #fff 45%);
+      min-height:100svh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    header{
+      background: rgba(255,255,255,.8);
+      backdrop-filter: blur(6px) saturate(130%);
+      border-bottom:1px solid rgba(245,124,0,.25);
+      font-size: 1.2rem; 
+      font-weight: bold;
+    }
+    .wrap{
+      width:min(960px, 92vw);
+      margin-inline:auto;
+      padding:16px 0;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .site-title{
+      color: var(--orange-600);
+      letter-spacing:.3px;
+    }
+
+    main{
+      flex:1;
+      display:grid; place-items:center;
+      padding: 32px 0 24px;
+    }
+    .card{
+      width:min(760px, 92vw);
+      background:#fff;
+      border:1px solid rgba(245,124,0,.18);
+      border-radius: var(--radius);
+      padding: clamp(18px, 3.2vw, 28px);
+      box-shadow: 0 10px 28px rgba(0,0,0,.06);
+    }
+
+    h1{
+      font-size: clamp(22px, 4.6vw, 34px);
+      color: var(--orange-600);
+      margin-bottom: 6px;
+    }
+    h2{
+      font-size: clamp(18px, 3.6vw, 22px);
+      color:#d35400;
+      margin-bottom: 14px;
+      font-weight:600;
+    }
+    p{
+      font-size: clamp(15px, 2.6vw, 18px);
+      line-height:1.5;
+      background: rgba(251,140,0,.08);
+      border:1px dashed rgba(245,124,0,.35);
+      color:#5a3800;
+      padding:20px;
+      border-radius:10px;
+      margin-bottom:18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 80px; 
+    }
+
+    .actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    button{
+      appearance:none; border:none; cursor:pointer;
+      background: linear-gradient(180deg, var(--orange-500), var(--orange-600));
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius:10px;
+      font-weight:700;
+      transition: transform .06s ease, box-shadow .2s ease;
+      box-shadow: 0 8px 20px rgba(251,140,0,.35);
+    }
+    button:hover{ transform: translateY(-1px) }
+
+    footer{
+      text-align:center;
+      padding:18px 0 24px;
+      color:#6b7280;
+      border-top:1px solid rgba(245,124,0,.2);
+      background: linear-gradient(180deg, rgba(255,243,224,.6), transparent);
+      font-size: 1.1rem; 
+    }
+
+    
+    @media (max-width: 640px){
+      .wrap{ padding:12px 0 }
+      .card{ padding:16px }
+      .actions{ justify-content:flex-start }
+      button{ width:100% }
+    }
+
+    .btn {
+    display: inline-block;
+    background: linear-gradient(180deg, var(--orange-500), var(--orange-600));
+    color: var(--white);
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(251,140,0,.35);
+    transition: transform .06s ease, box-shadow .2s ease;
+}
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="site-title">😎😎ENTREGABLE GITHUB😎😎</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="card" aria-label="contenido principal">
+      <h1>Hola es la página de Jhoanna</h1>
+      <h2>Saludos</h2>
+      <p>¡¡¡Bienvenidos al repositorio de github básico!!!</p>
+
+       <div class="actions">
+        <button type="button" onclick="window.close()">CERRAR ESTA PÁGINA</button>
+        <a href="../index.html" class="btn">VOLVER AL INDEX</a>
+        
+      </div>
+
+      
+
+    </section>
+  </main>
+
+  <footer>
+    😎😎Saludos a Todos. Nos Estamos Viendo😎😎
+  </footer>
+</body>
+</html>
